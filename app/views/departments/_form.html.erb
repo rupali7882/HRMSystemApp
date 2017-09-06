@@ -1,0 +1,25 @@
+<%= form_with(model: department, local: true) do |form| %>
+  <% if department.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(department.errors.count, "error") %> prohibited this department from being saved:</h2>
+
+      <ul>
+      <% department.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="row form-group">
+      <label for="inputEmail3" class="col-md-4 control-label">Department name</label>
+    <%= form.text_field :name,
+                        :class=>"form-control col-md-4",
+                        :placeholder=>"Department Name" %></div>
+    <br/>
+    <div class="text-center">
+      <%= link_to 'Back', departments_path ,:class=>"btn btn-primary" %>
+      <%= form.submit "Submit" ,:class=>"btn btn-primary" %>
+    </div>
+
+<% end %>

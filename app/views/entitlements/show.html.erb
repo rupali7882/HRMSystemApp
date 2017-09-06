@@ -1,0 +1,17 @@
+<section class="container">
+
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Leave type:</strong>
+  <%= @entitlement.leave_type %>
+</p>
+
+<p>
+  <strong>Number of leave:</strong>
+  <%= @entitlement.number_of_leave %>
+</p>
+
+<%= link_to 'Edit', edit_entitlement_path(@entitlement) %> |
+<%= link_to 'Back', entitlements_path %>
+</section>

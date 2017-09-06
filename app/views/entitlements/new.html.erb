@@ -1,0 +1,16 @@
+<section class="center">
+ <div class="container ">
+ 	<h2>Generate new Leave</h2>
+    <%= form_for @entitlement do |f| %>
+     <%= render 'form', entitlement: @entitlement , f: f%>
+
+
+	  <div class="text-center">
+	      <%= f.submit "Add" ,:class=>"btn btn-primary" %>
+	  </div>
+
+	<% end %>
+
+	  
+ </div>
+</section>

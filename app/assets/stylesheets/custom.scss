@@ -1,0 +1,11 @@
+.btn-lg{
+	height: 54px;
+    font-weight: bold;
+    font-size: 28px;
+    width: 100%;
+}
+.dropdown-menu li a{
+	&:hover{
+	background: #00cc99 !important;
+	}
+}

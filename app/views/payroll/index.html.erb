@@ -1,0 +1,49 @@
+<section >
+  <div class="container contact-wrap ">
+    <h2 class="center"> >>> Calculate Employee Salary <<< </h2>
+     <div class="row">
+      <div class="col-md-5">
+          <form onsubmit="$('#emp__search').blur();return false;" class="pure-form" style="margin:30px 0 40px">
+              <div class="form-group">
+                <label>Name:</label>
+                <%= text_field_tag :emp__search,nil,
+                                   :class=>"form-control", style: "width:100%;max-width:600px;outline:0" %></div>
+              <div class="form-group">
+                <label>Salary:</label>
+                <%= text_field_tag :emp__salary,nil,
+                                   :class=>"form-control", style: "width:100%;max-width:600px;outline:0" %></div>
+          </form>
+ 
+      </div>
+    <div class="col-md-7"></div>
+    </div>
+  </div>
+</section>
+
+<!-- 
+
+
+<script type="text/javascript">
+  $('#emp__search').autoComplete({
+      minChars: 0,
+      source: function(term, suggest){
+          term = term.toLowerCase();
+          var choices = $("#all__user").val().split(' ');
+          var suggestions = [];
+          for (i=0;i<choices.length;i++)
+              if (~(choices[i]+' '+choices[i]).toLowerCase().indexOf(term)) suggestions.push(choices[i]);
+          suggest(suggestions);
+      },
+      renderItem: function (item, search){
+          search = search.replace(/[-\/\\^$*+?.()|[\]{}]/g, '\\$&');
+          var re = new RegExp("(" + search.split(' ').join('|') + ")", "gi");
+          return '<div class="autocomplete-suggestion" data-lang="'+item+'" data-val="'+search+'"><img src="img/'+item+'.png"> '+item.replace(re, "<b>$1</b>")+'</div>';
+      },
+      onSelect: function(e, term, item){
+          $('#emp__search').val(item.data('lang'));
+          $.ajax({
+
+          })
+      }
+  });
+</script> -->

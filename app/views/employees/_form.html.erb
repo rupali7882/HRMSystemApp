@@ -1,0 +1,107 @@
+<%= form_with(model: employee, local: true) do |form| %>
+  <% if employee.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(employee.errors.count, "error") %> prohibited this employee from being saved:</h2>
+
+      <ul>
+      <% employee.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <h3> Personal Detail </h3>
+
+  <div class="row">
+    <div class="form-group col-md-4">
+      <%= form.text_field :fname, id: :employee_fname,
+                          :class=>"form-control",
+                          :placeholder=>"First Name" %></div>
+
+    <div class="form-group col-md-4">
+      <%= form.text_field :middle_name, id: :employee_middle_name,
+                          :class=>"form-control",
+                          :placeholder=>"Middle Name" %></div>
+
+    <div class="form-group col-md-4">
+      <%= form.text_field :lname, id: :employee_lname,
+                          :class=>"form-control",
+                          :placeholder=>"Last Name" %></div>
+  </div>
+
+  <div class="row">
+    <div class="form-group col-md-4">
+      <%= form.text_field :phone, id: :employee_phone,
+                          :class=>"form-control",
+                          :placeholder=>"Phone Number" %></div>
+
+    <div class="form-group col-md-4">
+      <%= form.text_field :salary, id: :salary, 
+                          :class=>"form-control",
+                          :placeholder=>"salary" %></div>
+
+    <div class="form-group col-md-4">
+      <%= form.select("department_id", Department.all.collect {|p| [ p.name, p.id ] }, { prompt: "Select Department" }, :class=>"form-control") %></div>
+
+  </div>
+
+  <div class="row">
+    <div class="form-group col-md-4">
+      <%= form.label :join_date %><br/>
+      <%= form.date_select :join_date, id: :employee_join_date ,
+                           :class=>"form-control",
+                           end_year: 2015%>
+    </div>
+
+    <div class="form-group col-md-4">
+      <%= form.label "Birth Date" %><br/>
+      <%= form.date_select :dob, id: :employee_dob,
+                           :class=>"form-control",
+                           end_year: 1970, start_year: 1995 %>
+    </div>
+
+    <div class="form-group col-md-4">
+      <%= form.label :gender %><br/>
+      <%= form.select(:gender, options_for_select([['Male'], ['Female']]), {:prompt => 'Select Gender'}, :class=>"form-control")%></div>
+  </div>
+
+  <div class="row">
+    <div class="form-group col-md-6">
+      <%= form.email_field :email, id: :employee_email,
+                           :class=>"form-control",
+                           :placeholder=>"Email"%></div>
+   <!--  <div class="form-group col-md-6">
+       <%#= form.date_select :experience,id: :employee_experience, order: [:month, :year],
+                            :class=>"form-control" %>
+    </div> -->
+  </div>
+
+  <div class="row">
+
+    <div class="col-md-6">
+        <h3> Permanent Address </h3>
+
+       <div class="form-group">
+          <%= form.text_area :street, id: :employee_street,
+                             :class=>"form-control",
+                             :placeholder=>"Your Address"%></div>
+      <div class="row">
+        <div class="form-group col-md-6">
+          <%= form.text_field :city, id: :employee_city,
+                              :class=>"form-control",
+                              :placeholder=>"City"%></div>
+          <div class="form-group col-md-6">
+          <%= form.text_field :pincode, id: :employee_pincode,
+                              :class=>"form-control",
+                              :placeholder=>"Pincode"%></div>
+      </div>
+    </div>
+   
+  </div> 
+
+  <div class="text-center">
+      <%= link_to 'Back', employees_path ,:class=>"btn btn-primary" %>
+      <%= form.submit "Submit" ,:class=>"btn btn-primary" %>
+  </div>
+
+<% end %>

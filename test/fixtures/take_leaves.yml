@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  employee_id: 1
+  entitlement_id: 
+  start_date: 2017-08-17
+  end_date: 2017-08-17
+  days: 1.5
+  reason: MyString
+
+two:
+  employee_id: 1
+  entitlement_id: 
+  start_date: 2017-08-17
+  end_date: 2017-08-17
+  days: 1.5
+  reason: MyString

@@ -1,0 +1,19 @@
+default: &default
+  adapter: mysql2
+  encoding: utf8
+  username: root
+  password: 12345678
+  host: 127.0.0.1
+  port: 3306
+
+development:
+  <<: *default
+  database: hrm_db
+
+test:
+  <<: *default
+  database: test_hrm_db
+
+production:
+  <<: *default
+  database: production_hrm_db

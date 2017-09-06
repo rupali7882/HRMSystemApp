@@ -1,0 +1,31 @@
+<section class="center">
+<%= link_to 'New Entitlement', new_entitlement_path , :style=>"float:right" ,:class=>"btn btn-primary"%>
+
+<p id="notice"><%= notice %></p>
+
+<h2> Leave Entitlement</h2>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Leave type</th>
+      <th>Number of leave</th>
+      
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @entitlements.each do |ent| %>
+      <tr>
+        <td><%= ent.leave_type %></td>
+        <td><%= ent.number_of_leave %></td>
+        <td><%= link_to 'Show', ent %></td>
+        <td><%= link_to 'Edit', edit_entitlement_path(ent) %></td>
+        <td><%= link_to 'Destroy', ent, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+</section>

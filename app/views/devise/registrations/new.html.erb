@@ -1,0 +1,48 @@
+<div class="map">
+</div>
+<section id="contact-page">
+  <div class="row contact-wrap"> 
+    <div class="col-sm-8 col-sm-offset-2 loginf">
+      <div class="center">        
+        <h2>Sign-Up</h2>
+        <p class="lead">Company Management System</p>
+      </div> 
+        <%= form_for(resource, as: resource_name, url: registration_path(resource_name), :class=>"contactForm") do |f| %>
+            <%= devise_error_messages! %>
+
+            <div class="row">
+              <div class="form-group col-md-6">
+                <%= f.text_field :fname, autofocus: true, :class=>"form-control", :placeholder=>"First Name" %>
+              </div>
+              <div class="form-group col-md-6">
+                <%= f.text_field :lname, autofocus: true, :class=>"form-control", :placeholder=>"Last Name" %>
+              </div>
+            </div>
+            <div class="form-group">
+              <%= f.email_field :email, autofocus: true, :class=>"form-control", :placeholder=>"Your Email" %>
+            </div>
+            <div class="form-group">
+            <% if @minimum_password_length %>
+                <em>(<%= @minimum_password_length %> characters minimum)</em>
+                <% end %><br />
+                <%= f.password_field :password,  autocomplete: "off", :class=>"form-control", :placeholder=>"Your Password" %>
+            </div>
+            <div class="form-group">
+              <%= f.password_field :password_confirmation,  autocomplete: "off", :class=>"form-control", :placeholder=>"Your Password Confirmation" %>
+            </div>
+
+            <div class="form-group">
+              <%= select_tag "role", options_for_select( ['admin', 'Employee', 'HR']), :class=>"form-control", prompt: 'Select Role'%>
+
+
+            </div>
+            <div class="text-center">
+                <%= f.submit "Sign Up" ,:class=>"btn btn-primary btn-lg"  %>
+            </div>
+        <% end %>     
+    </div>
+  </div><!--/.row-->
+  </div><!--/.container-->
+</section><!--/#contact-page-->
+
+<%#= render "devise/shared/links" %>

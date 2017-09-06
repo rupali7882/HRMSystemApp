@@ -1,0 +1,3 @@
+class TakeLeave < ApplicationRecord
+
+end

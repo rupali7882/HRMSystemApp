@@ -1,0 +1,12 @@
+<section >
+  <div class="container contact-wrap cs-fnt">
+    <h2>Editing Entitilement</h2>
+    <%= form_for @entitlement do |f| %>
+      <%= render 'form', entitlement: @entitlement, f: f%>
+      <div class="text-center">
+        <%= f.submit "Edit" ,:class=>"btn btn-primary" %>
+      </div>
+    <% end %>
+
+  </div>
+</section>
