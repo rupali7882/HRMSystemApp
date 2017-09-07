@@ -2,6 +2,9 @@ Rails.application.routes.draw do
   resources :departments
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   devise_for :users, :controllers => {:registrations => "registrations"}
+  as :user do
+    get 'users/profile', :to => 'devise/registrations#edit', :as => :user_root
+  end
   root 'welcome#index'
  
   get 'entitlments/index'
@@ -10,6 +13,14 @@ Rails.application.routes.draw do
 
 
   resources :employees
+  resources :static_pages do 
+    collection do
+       get :contact
+       get :help
+       get :about
+       get :carrier
+    end
+  end
   resources :departments
 
   resources :entitlements do 

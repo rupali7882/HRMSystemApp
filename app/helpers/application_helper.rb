@@ -7,4 +7,8 @@ module ApplicationHelper
       notice: "alert-info" }[flash_type] || flash_type.to_s
   end
 
+  def set_profile_pic u
+  	return u.pic.blank? ? "profile.png" : u.pic.url
+  end
+
 end

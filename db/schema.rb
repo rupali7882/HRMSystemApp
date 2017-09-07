@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170906054916) do
+ActiveRecord::Schema.define(version: 20170907094803) do
 
   create_table "addresses", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "street"
@@ -127,6 +127,16 @@ ActiveRecord::Schema.define(version: 20170906054916) do
     t.datetime "updated_at", null: false
     t.string "fname"
     t.string "lname"
+    t.string "pic_file_name"
+    t.string "pic_content_type"
+    t.integer "pic_file_size"
+    t.datetime "pic_updated_at"
+    t.integer "age"
+    t.string "mobile"
+    t.string "work_mobile"
+    t.date "dob"
+    t.text "content"
+    t.string "sec_email"
     t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true

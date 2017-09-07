@@ -13,7 +13,7 @@ class RegistrationsController < Devise::RegistrationsController
       resource.save
     end
   end
-    # add custom create logic here
+  # add custom create logic here
 
   def update
     super
@@ -30,5 +30,11 @@ class RegistrationsController < Devise::RegistrationsController
 
   def employee_params
     params.require(:employee).permit!
+  end
+
+  protected
+
+   def update_resource(resource, params)
+    resource.update_without_password(params)
   end
 end 

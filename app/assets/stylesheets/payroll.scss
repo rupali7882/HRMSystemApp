@@ -27,4 +27,33 @@
 .navbar-brand img{
 	width: 160px;
 }
+.profile-png{
+	margin-bottom: 14px;
+	text-align: center;	
+}
 
+ #preview-photo{
+    box-shadow: 2px 34px 42px -15px rgb(179, 179, 179);
+    border: solid 2px #00cc99;
+    height: 160px;
+    width: 35%;
+    height: 200px;
+    width: 200px;
+    border-radius: 50%;
+   }
+
+#user_pic {
+    display: none;
+}
+.custom-file-upload {
+    border: 1px solid #ccc;
+    display: inline-block;
+    padding: 6px 12px;
+    cursor: pointer;
+    margin-left: 300px;
+    position: absolute;
+    margin-top: -73px;
+    background: #666;
+    color: #fff;
+
+}

@@ -17,9 +17,9 @@
         <td>
           <% if lrqst.status.nil? %>
             <span id="lv-statusch-<%= lrqst.id%>">
-              <%= link_to "Approve", approve_reject_entitlement_path(lrqst,:status=>0), method: "patch", remote: true %>
-              <%= link_to "Pending", approve_reject_entitlement_path(lrqst,:status=>1), method: "patch", remote: true %>
-              <%= link_to "Reject", approve_reject_entitlement_path(lrqst,:status=>2), method: "patch", remote: true  %>
+              <%= link_to "Approve", approve_reject_entitlement_path(lrqst,:status=>0), method: "patch", remote: true, :class=>'btn btn-primary' %>
+              <%= link_to "Pending", approve_reject_entitlement_path(lrqst,:status=>1), method: "patch", remote: true , :class=>'btn btn-primary' %>
+              <%= link_to "Reject", approve_reject_entitlement_path(lrqst,:status=>2), method: "patch", remote: true , :class=>'btn btn-primary' %>
             </span>
           <% else %>
             <%= lrqst.status %>

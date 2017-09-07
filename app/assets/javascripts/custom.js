@@ -11,7 +11,7 @@
             $("ul#tab li:nth-child("+nthChild+")").addClass("active");
         }
     });
-
+// 45+15=60
 
         // ANIMATEDLY DISPLAY THE NOTIFICATION COUNTER.
         $('#noti_Counter')

@@ -1,3 +1,5 @@
+<section class="center">
+
 <p id="notice"><%= notice %></p>
 
 <p>
@@ -5,15 +7,7 @@
   <%= @department.name %>
 </p>
 
-<p>
-  <strong>User:</strong>
-  <%= @department.user_id %>
-</p>
-
-<p>
-  <strong>Employee:</strong>
-  <%= @department.employee %>
-</p>
 
 <%= link_to 'Edit', edit_department_path(@department) %> |
 <%= link_to 'Back', departments_path %>
+</section>

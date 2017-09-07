@@ -299,7 +299,7 @@ ul.social-share li a:hover {
 }
 
 .navbar-fixed-top .navbar-nav .dropdown-menu {
-  background-color: rgba(0,0,0,.85);
+  background-color: #182e49;
   -webkit-box-shadow: 0 3px 8px rgba(0, 0, 0, 0.125);
   -moz-box-shadow: 0 3px 8px rgba(0, 0, 0, 0.125);
   box-shadow: 0 3px 8px rgba(0, 0, 0, 0.125);
@@ -1476,8 +1476,8 @@ ul.social_icons li  a i{
 }
 
 #contact-page{
-  padding-top: 0;
-  background:#fff;
+/*  padding-top: 0;
+*/  background:#fff;
 }
 
 #contact-page .contact-form 
@@ -1498,10 +1498,10 @@ textarea#message{
   padding: 10px;
 }
 
-#contact-page .contact-wrap {
+/*#contact-page .contact-wrap {
   margin-top: 20px;
 }
-
+*/
 /*********************
 ****blog page css*****
 **********************/
@@ -1927,7 +1927,6 @@ ul.sidebar-gallery {
     background-image: url("/assets/slider_one.jpg");
     background-repeat: no-repeat;
     height: 315px;
-       margin-top: 87px;
 }
 
 .notfy-span{
@@ -2074,4 +2073,7 @@ ul.sidebar-gallery {
 }
 .hrm-dl ul#tab li.active {
     display: block;
+}
+.white-icon{
+  border-top-color:#fff !important;
 }
