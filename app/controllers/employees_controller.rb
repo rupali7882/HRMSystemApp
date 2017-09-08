@@ -25,7 +25,7 @@ class EmployeesController < ApplicationController
   # POST /employees
   # POST /employees.json
   def create
-    user = User.new(:email=>'dhrup.raupalip@gmail.com',:password => '12345678',confirmed_at: true)
+    user = User.new(:email=>'deepak@gmail.com',:password => '12345678',confirmed_at: true)
     user.add_role "Employee"
     user.save
     @employee = user.build_employee(employee_params)

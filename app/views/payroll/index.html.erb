@@ -3,16 +3,40 @@
     <h2 class="center"> >>> Calculate Employee Salary <<< </h2>
      <div class="row">
       <div class="col-md-5">
-          <form onsubmit="$('#emp__search').blur();return false;" class="pure-form" style="margin:30px 0 40px">
+          <form  class="pure-form" style="margin:30px 0 40px">
               <div class="form-group">
-                <label>Name:</label>
-                <%= text_field_tag :emp__search,nil,
-                                   :class=>"form-control", style: "width:100%;max-width:600px;outline:0" %></div>
-              <div class="form-group">
-                <label>Salary:</label>
-                <%= text_field_tag :emp__salary,nil,
-                                   :class=>"form-control", style: "width:100%;max-width:600px;outline:0" %></div>
-          </form>
+                <label>Search Employee Name:</label>
+                  <%= text_field_tag :search_emp,nil,
+                                     :class => "form-control",
+                                     :placeholder =>"Search employee name",
+                                     data: {autocomplete_source:  @user} %></div>
+                  <%= hidden_field_tag :emp_id,nil%>
+                  <div class="form-group">
+                    <label>Salary:</label>
+                    <%= text_field_tag :emp__salary,nil,
+                                       :class=>"form-control",
+                                       :readonly => true,
+                                        style: "width:100%;max-width:600px;outline:0" %></div>
+                    <div class="form-group">
+                    <label>Leave:</label>
+                    <%= text_field_tag :leave,nil,
+                                       :readonly => true,
+                                       :class=>"form-control",
+                                        style: "width:100%;max-width:600px;outline:0" %></div> 
+
+                    <div class="form-group">
+                    <label>per day salary:</label>
+                    <%= text_field_tag :per_day_sal ,nil,
+                                       :readonly => true,
+                                       :class=>"form-control",
+                                        style: "width:100%;max-width:600px;outline:0" %></div> 
+                  <div class="form-group">
+                    <label>Total  salary:</label>
+                    <%= text_field_tag :total_sal ,nil,
+                                       :readonly => true,
+                                       :class=>"form-control",
+                                        style: "width:100%;max-width:600px;outline:0" %></div> 
+          </form> 
  
       </div>
     <div class="col-md-7"></div>
@@ -20,30 +44,33 @@
   </div>
 </section>
 
-<!-- 
-
-
 <script type="text/javascript">
-  $('#emp__search').autoComplete({
-      minChars: 0,
-      source: function(term, suggest){
-          term = term.toLowerCase();
-          var choices = $("#all__user").val().split(' ');
-          var suggestions = [];
-          for (i=0;i<choices.length;i++)
-              if (~(choices[i]+' '+choices[i]).toLowerCase().indexOf(term)) suggestions.push(choices[i]);
-          suggest(suggestions);
-      },
-      renderItem: function (item, search){
-          search = search.replace(/[-\/\\^$*+?.()|[\]{}]/g, '\\$&');
-          var re = new RegExp("(" + search.split(' ').join('|') + ")", "gi");
-          return '<div class="autocomplete-suggestion" data-lang="'+item+'" data-val="'+search+'"><img src="img/'+item+'.png"> '+item.replace(re, "<b>$1</b>")+'</div>';
-      },
-      onSelect: function(e, term, item){
-          $('#emp__search').val(item.data('lang'));
-          $.ajax({
 
-          })
-      }
+  $('#search_emp').autocomplete({
+
+    source: $('#search_emp').data('autocomplete-source'),
+
+    select: function( event, ui ) {
+        
+        event.preventDefault()
+
+        $("#search_emp").val(ui.item.label); // display the selected text
+        $("#emp_id").val(ui.item.value);
+         
+          $.ajax({
+            type: "GET",
+            url: '/payroll/get_employee',
+            data: {id: ui.item.value},
+            success: function(data){
+              $("#emp__salary").val(data.emp.salary)
+              $("#leave").val(data.leave)
+              $("#per_day_sal").val(data.emp.salary/31)
+              $("#total_sal").val(data.emp.salary-((data.emp.salary/31)*data.leave))
+            }
+
+          });
+
+     }
   });
-</script> -->
+
+</script>

@@ -11,7 +11,6 @@ class CreateLeaveRequests < ActiveRecord::Migration[5.1]
       t.integer :status
 
       t.timestamps
-      t.timestamps
     end
   end
 end

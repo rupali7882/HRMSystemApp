@@ -13,6 +13,8 @@ Rails.application.routes.draw do
 
 
   resources :employees
+  resources :departments
+
   resources :static_pages do 
     collection do
        get :contact
@@ -21,7 +23,6 @@ Rails.application.routes.draw do
        get :carrier
     end
   end
-  resources :departments
 
   resources :entitlements do 
     collection do
@@ -37,13 +38,14 @@ Rails.application.routes.draw do
     collection do 
   	post :salcal
     post :search__emp
+    get :get_employee
     end
   end
 
   resources :settings do
     collection do
-    get :profile
-    get :hrm_dl
+      get :profile
+      get :hrm_dl
     end
   end
 
