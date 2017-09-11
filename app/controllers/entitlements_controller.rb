@@ -40,7 +40,7 @@ class EntitlementsController < ApplicationController
 
   def request_leave
      @leave_request = LeaveRequest.all
- end
+  end
 
   def update
      respond_to do |format|
@@ -53,21 +53,9 @@ class EntitlementsController < ApplicationController
       end
     end
   end
+ 
 
-  def create
-  	@entitlement = Entitlement.new(entitlement_params)
-    respond_to do |format|
-      if @entitlement.save
-        format.html { redirect_to @entitlement, notice: 'Entitlement was successfully created.' }
-        format.json { render :show, status: :created, location: @entitlement }
-      else
-        format.html { render :new }
-        format.json { render json: @entitlement.errors, status: :unprocessable_entity }
-      end
-    end
-  end
-
-  private
+private
     def set_entitilement
     	@entitlement =  Entitlement.find(params[:id])
     end

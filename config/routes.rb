@@ -1,16 +1,21 @@
 Rails.application.routes.draw do
+  
   resources :departments
+  
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
+  
   devise_for :users, :controllers => {:registrations => "registrations"}
+  
   as :user do
     get 'users/profile', :to => 'devise/registrations#edit', :as => :user_root
   end
+  
   root 'welcome#index'
- 
+  
   get 'entitlments/index'
   get '/hr' => 'welcome#hr', :as => 'hr_welcome'
   get '/employee' => 'welcome#employee', :as => 'employee_welcome'
-
+  
 
   resources :employees
   resources :departments

@@ -1,4 +1,5 @@
-<section >
+<!-- http://jeffthomas.xyz/many-to-many-relationships-in-rails
+ --><section >
   <div class="container contact-wrap ">
     <h2 class="center"> >>> Calculate Employee Salary <<< </h2>
      <div class="row">
@@ -47,17 +48,12 @@
 <script type="text/javascript">
 
   $('#search_emp').autocomplete({
-
     source: $('#search_emp').data('autocomplete-source'),
-
     select: function( event, ui ) {
-        
         event.preventDefault()
-
         $("#search_emp").val(ui.item.label); // display the selected text
         $("#emp_id").val(ui.item.value);
-         
-          $.ajax({
+         $.ajax({
             type: "GET",
             url: '/payroll/get_employee',
             data: {id: ui.item.value},
@@ -67,10 +63,7 @@
               $("#per_day_sal").val(data.emp.salary/31)
               $("#total_sal").val(data.emp.salary-((data.emp.salary/31)*data.leave))
             }
-
           });
-
-     }
+      }
   });
-
 </script>

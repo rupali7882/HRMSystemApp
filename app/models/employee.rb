@@ -3,3 +3,4 @@ class Employee < ApplicationRecord
 	 return	"#{self.fname} #{self.middle_name}  #{self.lname}"
 	end
 end
+
