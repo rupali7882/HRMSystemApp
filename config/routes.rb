@@ -5,11 +5,7 @@ Rails.application.routes.draw do
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   
   devise_for :users, :controllers => {:registrations => "registrations"}
-  
-  as :user do
-    get 'users/profile', :to => 'devise/registrations#edit', :as => :user_root
-  end
-  
+
   root 'welcome#index'
   
   get 'entitlments/index'

@@ -14,15 +14,17 @@
       <div class="collapse navbar-collapse navbar-right">
         <ul class="nav navbar-nav">
             <% if user_signed_in? %>
-                <li><%= link_to "Events","#" %></li>
-
               <% if current_user.has_role? 'hr'%>
+                <li><%= link_to "Home","#" %></li>
+
                 <li><%= link_to "Add Department",departments_path %></li>
                 <li><%= link_to "Employee Registration",employees_path %></li>
                 <li><%= link_to "Leave Type",entitlements_path %></li>
-                 <li><%= link_to "Payroll",payroll_index_path %></li>
+                <li><%= link_to "Payroll",payroll_index_path %></li>
+                <li><%= link_to "Events","#" %></li>
 
               <% else %>
+                <li><%= link_to "Home","#" %></li>
                 <li class="apy__lv"><%= link_to "APPLY LEAVE",leave_entitlements_path %></li>
                 <li id="noti_Container">
                   <div id="noti_Counter"></div> 

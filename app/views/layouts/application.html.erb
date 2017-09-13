@@ -6,12 +6,16 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA4lNbGFx0DdMWdiWcPYRe610KgnWJ1zFA&callback=initMap">
+    </script>
   </head>
 
   <body>
     <%= render 'layouts/shared/header'%>
     <%= render 'layouts/shared/flash_message'%>
     <%= yield %>
+    <%= render 'layouts/shared/map'%>
     <%= render 'layouts/shared/footer'%>
   </body>
 </html>

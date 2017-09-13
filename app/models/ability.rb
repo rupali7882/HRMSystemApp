@@ -14,7 +14,6 @@ class Ability
 
         can :read, :all
       end
-      # https://www.dropbox.com/s/awqpy7ifr67fcqb/HRMSystem182017.zip?dl=0
     #
     # The first argument to `can` is the action you are giving the user
     # permission to do.

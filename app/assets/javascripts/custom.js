@@ -1,17 +1,15 @@
- $( function(){ 
+$( function(){ 
 
     $(document).ready(function () {
-      $("ul#tabs li").click(function(e){
-        if (!$(this).hasClass("active")) {
-            var tabNum = $(this).index();
-            var nthChild = tabNum+1;
-            $("ul#tabs li.active").removeClass("active");
-            $(this).addClass("active");
-            $("ul#tab li.active").removeClass("active");
-            $("ul#tab li:nth-child("+nthChild+")").addClass("active");
-        }
-    });
-// 45+15=60
+
+        jQuery('.tabs .tab-links a').on('click', function(e)  {
+            var currentAttrValue = jQuery(this).attr('href');
+            // Show/Hide Tabs
+            jQuery('.tabs ' + currentAttrValue).show().siblings().hide();
+            // Change/remove current tab to active
+            jQuery(this).parent('li').addClass('active').siblings().removeClass('active');
+            e.preventDefault();
+        });
 
         // ANIMATEDLY DISPLAY THE NOTIFICATION COUNTER.
         $('#noti_Counter')
@@ -27,7 +25,8 @@
                 if ($('#notifications').is(':hidden')) {
                     $('#noti_Button').css('background-color', '#fff');
                 }
-                else $('#noti_Button').css('background-color', '#FFF');        // CHANGE BACKGROUND COLOR OF THE BUTTON.
+                else $('#noti_Button').css('background-color', '#FFF');  
+                // CHANGE BACKGROUND COLOR OF THE BUTTON.
             });
 
             $('#noti_Counter').fadeOut('slow');                 // HIDE THE COUNTER.
@@ -51,6 +50,5 @@
         });
     });
 
-
-
+    
 });

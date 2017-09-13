@@ -1,5 +1,6 @@
-<section class="center">
-<%= link_to 'New Employee', new_employee_path , :style=>"float:right" ,:class=>"btn btn-primary"%>
+
+<section class="center" ng-app="validationApp" ng-controller="mainController">
+<%= link_to 'New Employee', new_employee_path , :style=>"float:right" ,:class=>"btn btn-primary "%>
 
 <p id="notice"><%= notice %></p>
 
@@ -32,5 +33,11 @@
     <% end %>
   </tbody>
 </table>
+
 <br>
+
+
 </section>
+
+
+
